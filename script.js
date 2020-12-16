@@ -1,4 +1,9 @@
 window.addEventListener('load', (event) => {
-    console.log('page is fully loaded');
-    console.log(document.querySelectorAll('img'))
+    const images = Array.from(document.querySelectorAll('img'))
+
+    console.log('yo')
+    images.forEach(image => {
+        console.log('sending: ', image)
+        chrome.runtime.sendMessage({message: "check_image", image });
+    })
 });
