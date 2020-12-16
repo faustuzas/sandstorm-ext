@@ -1,5 +1,5 @@
 window.addEventListener('load', (event) => {
-    document.body.innerHTML = document.body.innerHTML.replaceAll('Boros Guildgate', '<div className="zedge_tooltip">Boros Guildgate<span className="zedge_tooltiptext"><img src="https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=366390&type=card" id="ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardImage" alt="Boros Guildgate" style="border:none;border-radius:13px;-webkit-border-radius:13px;-moz-border-radius:13px;"> </span> </div>')
+    document.body.innerHTML = document.body.innerHTML.replaceAll('Boros Guildgate', '<span class="zedge_tooltip">Boros Guildgate<span class="zedge_tooltiptext"><img src="https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=366390&type=card" alt="Boros Guildgate"></span></span>')
     let re = /(Boros Guildgate)/;
     let node = document.body.textContent.match(re);
     console.log(node)
