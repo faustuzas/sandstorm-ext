@@ -29,17 +29,23 @@ window.addEventListener('load', (event) => {
         let boros = $( "#zedgestorm-boros" )
         boros.css({display: "block"})
         boros.position({
-            my: "left+3 bottom-3",
+            my: "left+10 bottom",
             of: e.originalEvent,
-            collision: "fit"
+            collision: "flip"
         });
     });
-    $( "#boros" ).mouseleave(function() {
-        setTimeout(function() {
-            console.log('removing')
-            $( "#zedgestorm-boros" ).css({display: "none"})
+    function addTimeout() {
+        let boros = $( "#zedgestorm-boros" )
+        boros.remove_timeout = setTimeout(function() {
+            boros.css({display: "none"})
         }, 3000)
+    }
+
+    $( "#boros" ).mouseleave(addTimeout);
+    $( "#zedgestorm-boros" ).mouseenter(function() {
+        clearTimeout($("#zedgestorm-boros").remove_timeout)
     });
+    $( "#zedgestorm-boros" ).mouseleave(addTimeout);
 
     let boros = document.createElement('div')
     boros.setAttribute("id", "zedgestorm-boros")
