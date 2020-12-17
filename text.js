@@ -40,9 +40,6 @@ window.addEventListener('load', (event) => {
             $( "#zedgestorm-boros" ).css({display: "none"})
         }, 3000)
     });
-    $( "#zedgestorm-boros" ).mouseenter(function() {
-        $( "#zedgestorm-boros" ).css({display: "block"})
-    });
 
     let boros = document.createElement('div')
     boros.setAttribute("id", "zedgestorm-boros")
