@@ -90,7 +90,7 @@ bottomBubbles {  0% {
     }
 }
 
-#zedgestorm-boros {
+.ui-widget-content {
     width: 223px;
     height: 100%;
     background: transparent;

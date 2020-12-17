@@ -1,32 +1,17 @@
-window.addEventListener('load', (event) => {
-    // document.body.innerHTML = document.body.innerHTML.replaceAll('some games', '<span class="zedge-confetti">some games</span>')
-    // let classname = document.getElementsByClassName("zedge-confetti");
-    //
-    // var animateButton = function(e) {
-    //     e.preventDefault;
-    //     if (!e.target.classList.contains('animate'))
-    //     {
-    //         e.target.classList.add('animate');
-    //     }
-    //     setTimeout(function(){
-    //         e.target.classList.remove('animate');
-    //     },700);
-    // };
-    //
-    // console.log('confetties', classname.length)
-    // for (var i = 0; i < classname.length; i++) {
-    //     classname[i].addEventListener('mouseover', animateButton, false);
-    // }
+function boros(id, text, url) {
+    const name = id
+    document.body.innerHTML = document.body.innerHTML.replace(text, '<span id=' + name + ' class="zedgestorm-keyword">' + text + '</span>')
+    let boros = document.createElement('div')
+    boros.setAttribute("id", "zedgestorm-" + name)
+    boros.setAttribute("class", "ui-widget-content")
+    let img = document.createElement('IMG')
+    img.setAttribute("src", url)
+    boros.append(img)
+    document.body.appendChild(boros)
 
-    document.body.innerHTML = document.body.innerHTML.replace('Boros Guildgate', '<span id="boros" class="zedgestorm-keyword">Boros Guildgate</span>')
-    $( function() {
-        $( "#zedgestorm-boros" ).draggable();
-    } );
-    $( "#boros" ).hover(function(e) {
-        console.log(e)
-    });
-    $( "#boros" ).mousemove(function(e) {
-        let boros = $( "#zedgestorm-boros" )
+    $( "#" + name ).mousemove(function(e) {
+        console.log(name)
+        let boros = $( "#zedgestorm-" + name )
         boros.css({display: "block"})
         boros.position({
             my: "left+10 bottom",
@@ -35,23 +20,38 @@ window.addEventListener('load', (event) => {
         });
     });
     function addTimeout() {
-        let boros = $( "#zedgestorm-boros" )
+        let boros = $( "#zedgestorm-" + name )
         boros.remove_timeout = setTimeout(function() {
             boros.css({display: "none"})
         }, 3000)
     }
 
-    $( "#boros" ).mouseleave(addTimeout);
-    $( "#zedgestorm-boros" ).mouseenter(function() {
-        clearTimeout($("#zedgestorm-boros").remove_timeout)
+    $( "#" + name ).mouseleave(addTimeout);
+    $( "#zedgestorm-" + name ).mouseleave(addTimeout);
+    $( "#zedgestorm-" + name ).mousemove(function() {
+        clearTimeout($("#zedgestorm-" + name).remove_timeout)
     });
-    $( "#zedgestorm-boros" ).mouseleave(addTimeout);
+}
 
-    let boros = document.createElement('div')
-    boros.setAttribute("id", "zedgestorm-boros")
-    boros.setAttribute("class", "ui-widget-content")
-    let img = document.createElement('IMG')
-    img.setAttribute("src", "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=366390&type=card")
-    boros.append(img)
-    document.body.appendChild(boros)
+
+window.addEventListener('load', (event) => {
+    document.body.innerHTML = document.body.innerHTML.replaceAll('some games', '<span class="zedge-confetti">some games</span>')
+    let classname = document.getElementsByClassName("zedge-confetti");
+
+    var animateButton = function(e) {
+        e.target.classList.add('animate');
+        setTimeout(function(){
+            e.target.classList.remove('animate');
+        },700);
+    };
+
+    console.log('confetties', classname.length)
+    for (var i = 0; i < classname.length; i++) {
+        classname[i].addEventListener('mouseenter', animateButton, false);
+    }
+
+    boros("boros", 'Boros Guildgate', "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=366390&type=card");
+    boros("chemister", 'Chemister\'s Insight', "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=482736&type=card");
+    boros("capture", 'Capture Sphere', "https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=485370&type=card");
+
 });
