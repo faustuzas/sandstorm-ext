@@ -1,14 +1,12 @@
 {
-    "manifest_version": 2,
-    "name": "Sandstorm",
-    "version": "0.0.1",
-    "permissions": [
-        "activeTab"
-    ],
-    "content_scripts": [
-        {
-          "matches": ["<all_urls>"],
-          "js": ["script.js"]
-        }
-    ]
+  "name": "Catifier",
+  "version": "1.0",
+  "description": "Moar cats!",
+  "permissions": ["declarativeWebRequest", "<all_urls>"],
+  "background": {
+    "scripts": ["event_page.js"],
+    "persistent": false
+  },
+
+  "manifest_version": 2
 }
