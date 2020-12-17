@@ -10,6 +10,7 @@ var RequestMatcher = chrome.declarativeWebRequest.RequestMatcher;
 var IgnoreRules = chrome.declarativeWebRequest.IgnoreRules;
 var RedirectByRegEx = chrome.declarativeWebRequest.RedirectByRegEx;
 
+// var sandstormUrl = 'http://localhost:5000/mustaches?url=$1'
 var sandstormUrl = 'https://sandstorm-backend.herokuapp.com/mustaches?url=$1'
 
 // Registers redirect rules assuming that currently no rules are registered by
@@ -28,6 +29,10 @@ function registerRules() {
         url: {pathSuffix: '.jpeg'},
         resourceType: ['image']
       }),
+      new RequestMatcher({
+        url: {pathSuffix: '.png'},
+        resourceType: ['image']
+      }),
     ],
     actions: [
       new RedirectByRegEx({
@@ -40,7 +45,9 @@ function registerRules() {
     priority: 1000,
     conditions: [
       // We use hostContains to compensate for various top-level domains.
-      new RequestMatcher({url: {hostContains: '.google.'}})
+      new RequestMatcher({
+        url: {hostContains: '.google.'}
+      })
     ],
     actions: [
       new IgnoreRules({lowerPriorityThan: 1000})
