@@ -18,23 +18,31 @@ window.addEventListener('load', (event) => {
     //     classname[i].addEventListener('mouseover', animateButton, false);
     // }
 
-    document.body.innerHTML = document.body.innerHTML.replace('Boros Guildgate', '<span id="boros" class="zedgestorm-keyword" onmouseover=showCard() onmouseout=hideCard()>Boros Guildgate</span>')
+    document.body.innerHTML = document.body.innerHTML.replace('Boros Guildgate', '<span id="boros" class="zedgestorm-keyword">Boros Guildgate</span>')
     $( function() {
         $( "#zedgestorm-boros" ).draggable();
     } );
-    $( document ).mousemove(function( event ) {
-        $( "#zedgestorm-boros" ).position({
+    $( "#boros" ).hover(function(e) {
+        console.log(e)
+    });
+    $( "#boros" ).mousemove(function(e) {
+        let boros = $( "#zedgestorm-boros" )
+        boros.css({display: "block"})
+        boros.position({
             my: "left+3 bottom-3",
-            of: event,
+            of: e.originalEvent,
             collision: "fit"
         });
     });
-    function showCard() {
+    $( "#boros" ).mouseleave(function() {
+        setTimeout(function() {
+            console.log('removing')
+            $( "#zedgestorm-boros" ).css({display: "none"})
+        }, 3000)
+    });
+    $( "#zedgestorm-boros" ).mouseenter(function() {
         $( "#zedgestorm-boros" ).css({display: "block"})
-    }
-    function hideCard() {
-        $( "#zedgestorm-boros" ).css({display: "none"})
-    }
+    });
 
     let boros = document.createElement('div')
     boros.setAttribute("id", "zedgestorm-boros")
