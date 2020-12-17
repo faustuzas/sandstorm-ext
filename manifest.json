@@ -5,14 +5,11 @@
     "permissions": [
         "activeTab"
     ],
-    "background": {
-        "scripts": ["libs/tfjs.min.js", "libs/coco-ssd.min.js"]
-    },
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["script.js"]
+          "js": ["libs/anime.min.js", "script.js"],
+          "css": ["canvas.css"]
         }
-    ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+    ]
 }
