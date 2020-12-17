@@ -2,14 +2,16 @@
     "manifest_version": 2,
     "name": "Sandstorm",
     "version": "0.0.1",
-    "permissions": [
-        "activeTab"
-    ],
+    "permissions": ["declarativeWebRequest", "activeTab"],
+    "background": {
+      "scripts": ["event_page.js"],
+      "persistent": false
+    },
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["libs/anime.min.js", "script.js"],
-          "css": ["canvas.css"]
+          "js": ["libs/anime.min.js", "script.js", "jquery-1.12.4.js", "jquery-ui.js", "text.js"],
+          "css": ["canvas.css", "content.css"]
         }
     ]
 }
