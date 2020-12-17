@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Sandstorm",
     "version": "0.0.1",
-    "permissions": ["declarativeWebRequest", "activeTab"],
+    "permissions": ["declarativeWebRequest", "activeTab", "<all_urls>"],
     "background": {
       "scripts": ["event_page.js"],
       "persistent": false
