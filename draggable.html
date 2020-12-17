@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        #zedgestorm-bor {
+            width: 223px;
+            height: 100%;
+            background: transparent;
+            border: none;
+            display: none;
+        }
+        .zedge-keyword {
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        // $( function() {
+        //     $( "#zedgestorm-bor" ).draggable();
+        // } );
+        // $( document ).mousemove(function( event ) {
+        //     $( "#zedgestorm-boros" ).position({
+        //         my: "left+3 bottom-3",
+        //         of: event,
+        //         collision: "fit"
+        //     });
+        // });
+        // function showCard() {
+        //     $( "#zedgestorm-boros" ).css({display: "block"})
+        // }
+        function hideCard() {
+            $( "#zedgestorm-boros" ).css({display: "none"})
+        }
+    </script>
+</head>
+<body>
+
+Other text on the page containing Boros Guildgate
+<!--<p> another <span id="zedge-keyword" onmouseover='showCard()' onmouseout="hideCard()" class="zedge-keyword">paragraph</span> </p>-->
+
+<p> after draggable</p>
+
+</body>
+<!--<div id="zedgestorm-bor" class="ui-widget-content">-->
+<!--    <img src="https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=366390&type=card">-->
+<!--</div>-->
+</html>
